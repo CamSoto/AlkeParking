@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 import kotlin.concurrent.timer
+=======
+/*
+QA - Why is vehicles defined as a Set ?
+Because a Set is a generic unordered collection of elements that does not support duplicate elements.
+ */
+
+import AlkeParking.Companion.parking
+
+open class AlkeParking{
+    companion object{
+        val parking: Parking = Parking(mutableSetOf())
+    }
+}
+>>>>>>> develop
 
 fun main(args: Array<String>) {
 
@@ -27,6 +42,7 @@ fun main(args: Array<String>) {
         Vehicle("AM111AA", VehicleType.CAR)
     )
 
+<<<<<<< HEAD
     val parking = Parking(mutableSetOf())
     lateinit var parkingSpace: ParkingSpace
     for (i in arrayVehicles){
@@ -58,5 +74,23 @@ fun main(args: Array<String>) {
     //println(parking.vehicles.contains(bus))
     //parking.vehicles.remove(motorcycle)
     //println(parking.vehicles.size)
+=======
+    //TODO: comment code, make tests.
+
+    for (i in arrayVehicles){
+        parking.addVehicle(i)
+    }
+
+    parking.listVehicle()
+    parking.removeVehicle("AA111AA")
+    parking.removeVehicle("AA111AA")
+    parking.removeVehicle("CC633CC")
+    parking.removeVehicle("DD484DD")
+    parking.removeVehicle("DL444DD")
+    parking.removeVehicle("CC633CC")
+    parking.removeVehicle("B222BBB")
+    parking.listVehicle()
+    parking.showInfo()
+>>>>>>> develop
 }
 
