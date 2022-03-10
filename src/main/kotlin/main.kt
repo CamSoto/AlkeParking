@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import kotlin.concurrent.timer
-=======
 /*
 QA - Why is vehicles defined as a Set ?
 Because a Set is a generic unordered collection of elements that does not support duplicate elements.
@@ -13,7 +10,6 @@ open class AlkeParking{
         val parking: Parking = Parking(mutableSetOf())
     }
 }
->>>>>>> develop
 
 fun main(args: Array<String>) {
 
@@ -42,39 +38,6 @@ fun main(args: Array<String>) {
         Vehicle("AM111AA", VehicleType.CAR)
     )
 
-<<<<<<< HEAD
-    val parking = Parking(mutableSetOf())
-    lateinit var parkingSpace: ParkingSpace
-    for (i in arrayVehicles){
-        parkingSpace = ParkingSpace(i, parking)
-        parkingSpace.checkInVehicle(i)
-    }
-
-    parkingSpace.checkOutVehicle("AA111AA")
-
-
-
-//    fun checkIn(array: Array<Vehicle>){
-//        for (i in array){
-//            if (parking.addVehicle(i)) println("Welcome to AlkeParking!")
-//            else println("Sorry, the check-in failed")
-//        }
-//    }
-
-    //for (i in arrayVehicles){
-    //    if (parking.addVehicle(i)) println("Welcome to AlkeParking!")
-    //    else println("Sorry, the check-in failed")
-    //}
-
-//    checkIn(arrayVehicles)
-    //val parking = Parking(mutableSetOf(car, motorcycle, minibus, bus))
-    //println(parking.vehicles.contains(car))
-    //println(parking.vehicles.contains(motorcycle))
-    //println(parking.vehicles.contains(minibus))
-    //println(parking.vehicles.contains(bus))
-    //parking.vehicles.remove(motorcycle)
-    //println(parking.vehicles.size)
-=======
     //TODO: comment code, make tests.
 
     for (i in arrayVehicles){
@@ -91,6 +54,5 @@ fun main(args: Array<String>) {
     parking.removeVehicle("B222BBB")
     parking.listVehicle()
     parking.showInfo()
->>>>>>> develop
 }
 

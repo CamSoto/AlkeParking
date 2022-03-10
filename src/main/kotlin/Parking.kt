@@ -1,10 +1,6 @@
 data class Parking(val vehicles: MutableSet<Vehicle>) {
-<<<<<<< HEAD
-
-=======
     //first cantVehicle, second profits
     var info : Pair<Int,Int> = Pair(0,0)
->>>>>>> develop
     val maxVehicle = 20
 
     fun addVehicle(vehicle: Vehicle) : Boolean{
