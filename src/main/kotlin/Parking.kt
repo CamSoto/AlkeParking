@@ -4,7 +4,7 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
     val maxVehicle = 20
 
     fun addVehicle(vehicle: Vehicle) : Boolean{
-        return if (maxVehicle > vehicles.count()) {
+        return if (maxVehicle > vehicles.count() && !vehicles.contains(vehicle)) {
             vehicles.add(vehicle)
             println("Welcome to AlkeParking!")
             true
