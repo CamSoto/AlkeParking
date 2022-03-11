@@ -38,8 +38,6 @@ fun main(args: Array<String>) {
         Vehicle("AM111AA", VehicleType.CAR)
     )
 
-    //TODO: comment code, make tests.
-
     for (i in arrayVehicles){
         parking.addVehicle(i)
     }
