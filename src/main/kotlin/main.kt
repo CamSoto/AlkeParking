@@ -3,13 +3,13 @@ QA - Why is vehicles defined as a Set ?
 Because a Set is a generic unordered collection of elements that does not support duplicate elements.
  */
 
-import AlkeParking.Companion.parking
-
-open class AlkeParking{
-    companion object{
-        val parking: Parking = Parking(mutableSetOf())
-    }
-}
+//import AlkeParking.Companion.parking
+//
+//open class AlkeParking{
+//    companion object{
+//        val parking: Parking = Parking(mutableSetOf())
+//    }
+//}
 
 fun main(args: Array<String>) {
 
@@ -39,20 +39,22 @@ fun main(args: Array<String>) {
     )
 
     //TODO: comment code, make tests.
+    val parking: Parking = Parking(mutableSetOf())
 
     for (i in arrayVehicles){
         parking.addVehicle(i)
     }
 
     parking.listVehicle()
-    parking.removeVehicle("AA111AA")
-    parking.removeVehicle("AA111AA")
-    parking.removeVehicle("CC633CC")
-    parking.removeVehicle("DD484DD")
-    parking.removeVehicle("DL444DD")
-    parking.removeVehicle("CC633CC")
-    parking.removeVehicle("B222BBB")
-    parking.listVehicle()
+    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR), "AA111AA")
+    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR), "AA111AA")
+//    parking.removeVehicle("AA111AA")
+//    parking.removeVehicle("CC633CC")
+//    parking.removeVehicle("DD484DD")
+//    parking.removeVehicle("DL444DD")
+//    parking.removeVehicle("CC633CC")
+//    parking.removeVehicle("B222BBB")
+//    parking.listVehicle()
     parking.showInfo()
 }
 

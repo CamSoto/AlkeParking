@@ -1,8 +1,8 @@
-import AlkeParking.Companion.parking
+//import AlkeParking.Companion.parking
 import java.util.*
 import kotlin.math.ceil
 
-data class ParkingSpace(var vehicle: Vehicle) {
+data class ParkingSpace(var vehicle: Vehicle, val parking: Parking) {
     val MINUTES_IN_MILISECONDS = 60000
     val parkedTime: Long
         get() = (Calendar.getInstance().timeInMillis - vehicle.checkInTime.timeInMillis) / MINUTES_IN_MILISECONDS

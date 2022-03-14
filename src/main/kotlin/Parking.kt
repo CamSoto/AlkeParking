@@ -15,11 +15,8 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
         }
     }
 
-    fun removeVehicle(plate:String){
-        val vehicle = this.vehicles.find { it.plate == plate}
-        vehicle
-            ?.let{ParkingSpace(it).checkOutVehicle(vehicle.plate)}
-            ?:run{ println("This vehicle not exist in the parking")}
+    fun removeVehicle(vehicle: Vehicle, plate:String){
+        ParkingSpace(vehicle, this).checkOutVehicle(plate)
     }
 
     fun listVehicle(){
@@ -27,7 +24,7 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
     }
 
     fun updateInfo(profits:Int){
-        this.info= this.info.copy(first=this.info.first + 1, second=this.info.second+profits)
+        this.info = this.info.copy(first=this.info.first + 1, second=this.info.second+profits)
     }
 
     fun showInfo(){
