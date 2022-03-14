@@ -1,15 +1,8 @@
 /*
 QA - Why is vehicles defined as a Set ?
 Because a Set is a generic unordered collection of elements that does not support duplicate elements.
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/
  */
-
-//import AlkeParking.Companion.parking
-//
-//open class AlkeParking{
-//    companion object{
-//        val parking: Parking = Parking(mutableSetOf())
-//    }
-//}
 
 fun main(args: Array<String>) {
 
@@ -46,8 +39,7 @@ fun main(args: Array<String>) {
     }
 
     parking.listVehicle()
-    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR))
-    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR))
+    parking.removeVehicle("AA111AA")
 //    parking.removeVehicle("AA111AA")
 //    parking.removeVehicle("CC633CC")
 //    parking.removeVehicle("DD484DD")

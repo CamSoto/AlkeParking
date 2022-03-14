@@ -21,15 +21,19 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
     }
 
     /**
-     * This function remove the vehicle selected
-     * @param vehicle
+     * This function find the vehicle with the plate, if it exists call the method needed to remove the vehicle
+     * or if it doesn't exists, it shows error message
+     * @param plate
      */
-    fun removeVehicle(vehicle: Vehicle){
-        ParkingSpace(vehicle, this).checkOutVehicle(vehicle.plate)
+    fun removeVehicle(plate: String) {
+        val vehicle = this.vehicles.find { it.plate == plate }
+        vehicle
+            ?.let{ ParkingSpace(vehicle, this).checkOutVehicle(vehicle) }
+            ?:run{ println("This vehicle not exist in the parking") }
     }
 
     fun listVehicle(){
-        vehicles.forEach{println(it.plate)}
+        vehicles.forEach{ println(it.plate) }
     }
 
     fun updateInfo(profits:Int){
