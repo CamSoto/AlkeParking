@@ -31,22 +31,20 @@ fun main(args: Array<String>) {
         Vehicle("AM111AA", VehicleType.CAR)
     )
 
-    //TODO: comment code, make tests.
-    val parking: Parking = Parking(mutableSetOf())
+    val parking = Parking(mutableSetOf())
 
     for (i in arrayVehicles){
         parking.addVehicle(i)
     }
 
     parking.listVehicle()
-    parking.removeVehicle("AA111AA")
-//    parking.removeVehicle("AA111AA")
-//    parking.removeVehicle("CC633CC")
-//    parking.removeVehicle("DD484DD")
-//    parking.removeVehicle("DL444DD")
-//    parking.removeVehicle("CC633CC")
-//    parking.removeVehicle("B222BBB")
-//    parking.listVehicle()
+    parking.removeVehicle("AA911AA")
+    parking.showInfo()
+    parking.addVehicle(Vehicle("B222BNB", VehicleType.MOTORCYCLE))
+    parking.addVehicle(Vehicle("B222BKB", VehicleType.MINIBUS))
+    parking.removeVehicle("CC633CC")
+    parking.removeVehicle("B222BBB")
+    parking.listVehicle()
     parking.showInfo()
 }
 

@@ -3,7 +3,11 @@ import kotlin.math.ceil
 
 data class ParkingSpace(var vehicle: Vehicle, val parking: Parking) {
     val MINUTES_IN_MILISECONDS = 60000
-    private val parkedTime: Long
+    val DISCOUNTPERCENTAGE = 15
+    val FEEPERFRACTION = 5
+    val TWOHOURSMINUTES = 120
+    val TIMEBLOCK = 15
+    val parkedTime: Long
         get() = (Calendar.getInstance().timeInMillis - vehicle.checkInTime.timeInMillis) / MINUTES_IN_MILISECONDS
 
     /**
@@ -29,14 +33,14 @@ data class ParkingSpace(var vehicle: Vehicle, val parking: Parking) {
      * @return fee:Int calculation value
      */
     private fun calculateFee(type: VehicleType, parkedTime: Long, hasDiscount: Boolean) : Int {
-        val fee = if (parkedTime <= 120) {
+        val fee = if (parkedTime <= TWOHOURSMINUTES) {
             type.fee
         } else {
             //.toInt() Converts this Float value to Int. The fractional part, if any, is rounded down towards zero.
             //https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/to-int.html
-            (ceil(((parkedTime.toDouble() - 120) / 15)) * 5 + type.fee).toInt()
+            (ceil(((parkedTime.toDouble() - TWOHOURSMINUTES) / TIMEBLOCK)) * FEEPERFRACTION + type.fee).toInt()
         }
-        return if(hasDiscount) fee * 85 /100 else fee
+        return if(hasDiscount) fee * (100 - DISCOUNTPERCENTAGE) / 100 else fee
     }
 
     private fun onSuccess(amount: Int){

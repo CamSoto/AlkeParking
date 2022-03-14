@@ -1,7 +1,7 @@
 data class Parking(val vehicles: MutableSet<Vehicle>) {
     //first cantVehicle, second profits
     var info : Pair<Int,Int> = Pair(0,0)
-    val maxVehicle = 20
+    val MAXVEHICLE = 20
 
     /**
      * This function add a vehicle to the parking.
@@ -9,7 +9,7 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
      * @return Boolean, true if the vehicle could be added or false if the check-in failed
      */
     fun addVehicle(vehicle: Vehicle) : Boolean{
-        return if (maxVehicle > vehicles.count() && !vehicles.contains(vehicle)) {
+        return if (MAXVEHICLE > vehicles.count() && !vehicles.contains(vehicle)) {
             vehicles.add(vehicle)
             println("Welcome to AlkeParking!")
             true
