@@ -7,6 +7,10 @@ data class ParkingSpace(var vehicle: Vehicle, val parking: Parking) {
     val parkedTime: Long
         get() = (Calendar.getInstance().timeInMillis - vehicle.checkInTime.timeInMillis) / MINUTES_IN_MILISECONDS
 
+    /**
+     * This function is in charge of collecting the data to then call calculateFee and if everything is satisfactory, remove the vehicle
+     * @param vehicle to retrieve information and then remove
+     */
     fun checkOutVehicle(vehiclePlate: String){
         val vehicle = parking.vehicles.find { it.plate == vehiclePlate }
         vehicle?.let {
@@ -14,12 +18,16 @@ data class ParkingSpace(var vehicle: Vehicle, val parking: Parking) {
             val amount: Int = calculateFee(vehicle.type, parkedTime, !vehicle.discountCard.isNullOrEmpty())
             onSuccess(amount)
             parking.vehicles.remove(vehicle)
-
         } ?: run {
             onError()
         }
     }
 
+    /**
+     * This function performs the calculation taking into account the type of vehicle, the time and the discount if it has one.
+     * @param type (enum class), parkedTime (vehicle parking time), hasDiscount (discount card)
+     * @return fee:Int calculation value
+     */
     fun calculateFee(type: VehicleType, parkedTime: Long, hasDiscount: Boolean) : Int {
         val fee = if (parkedTime <= 120) {
             type.fee
