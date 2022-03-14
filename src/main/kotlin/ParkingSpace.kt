@@ -25,7 +25,9 @@ data class ParkingSpace(var vehicle: Vehicle, val parking: Parking) {
 
     /**
      * This function performs the calculation taking into account the type of vehicle, the time and the discount if it has one.
-     * @param type (enum class), parkedTime (vehicle parking time), hasDiscount (discount card)
+     * @param type (enum class)
+     * @param parkedTime (vehicle parking time)
+     * @param hasDiscount (discount card)
      * @return fee:Int calculation value
      */
     fun calculateFee(type: VehicleType, parkedTime: Long, hasDiscount: Boolean) : Int {

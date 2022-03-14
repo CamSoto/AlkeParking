@@ -46,8 +46,8 @@ fun main(args: Array<String>) {
     }
 
     parking.listVehicle()
-    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR), "AA111AA")
-    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR), "AA111AA")
+    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR))
+    parking.removeVehicle(Vehicle("AA111AA", VehicleType.CAR))
 //    parking.removeVehicle("AA111AA")
 //    parking.removeVehicle("CC633CC")
 //    parking.removeVehicle("DD484DD")
