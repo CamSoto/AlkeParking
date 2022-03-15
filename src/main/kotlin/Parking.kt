@@ -29,7 +29,7 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
         val vehicle = this.vehicles.find { it.plate == plate }
         vehicle
             ?.let{ ParkingSpace(vehicle, this).checkOutVehicle(vehicle) }
-            ?:run{ println("This vehicle not exist in the parking") }
+            ?:run{ println("Sorry, the check-out failed./nThis vehicle not exist in the parking") }
     }
 
     fun listVehicle(){
