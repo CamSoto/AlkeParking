@@ -40,6 +40,7 @@ fun main(args: Array<String>) {
     parking.listVehicle()
     parking.removeVehicle("AA911AA")
     parking.showInfo()
+    parking.removeVehicle("ABCD321")
     parking.addVehicle(Vehicle("B222BNB", VehicleType.MOTORCYCLE))
     parking.addVehicle(Vehicle("B222BKB", VehicleType.MINIBUS))
     parking.removeVehicle("CC633CC")

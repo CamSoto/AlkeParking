@@ -6,17 +6,14 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
     /**
      * This function add a vehicle to the parking.
      * @param vehicle
-     * @return Boolean, true if the vehicle could be added or false if the check-in failed
      */
-    fun addVehicle(vehicle: Vehicle) : Boolean{
+    fun addVehicle(vehicle: Vehicle) {
         return if (MAXVEHICLE > vehicles.count() && !vehicles.contains(vehicle)) {
             vehicles.add(vehicle)
             println("Welcome to AlkeParking!")
-            true
         }
         else {
             println("Sorry, the check-in failed")
-            false
         }
     }
 
@@ -29,7 +26,7 @@ data class Parking(val vehicles: MutableSet<Vehicle>) {
         val vehicle = this.vehicles.find { it.plate == plate }
         vehicle
             ?.let{ ParkingSpace(vehicle, this).checkOutVehicle(vehicle) }
-            ?:run{ println("This vehicle not exist in the parking") }
+            ?:run{ println("Sorry, the check-out failed. This vehicle not exist in the parking") }
     }
 
     fun listVehicle(){
